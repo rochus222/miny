@@ -1,0 +1,192 @@
+<html>
+	<head>
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
+		<meta charset="utf-8" />
+		<title>Mines</title>
+		<meta name="author" content="Pavol Kögler">
+		<script type="text/javascript" charset="utf-8" src="cordova-1.5.0.js"></script>
+		<script src="js/miny.js"></script>
+		<script src="js/jquery.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+	</head>
+	<body>
+		<div id="uvod" onClick="zacni_hru('uvod','hra');"><p align="center"><img src="img/uvod.png" width="80%"></img></p><br /><p id="blikaj" align="center">Tap to continue...</p></div>
+		<div id="hra">
+			<div id="header">
+				<div align="center" style="margin:0 auto; display:inline; width:180px;"><h2>Play Game</h2></div>
+				<div style="display:inline; width:30px; height:30px; position:absolute; right:2px; top:2px;" class="ikonka" onClick="posun_vpravo('hra','menu');"><img src="img/menu.png"></img></div>
+			</div>
+			<div id="hracie_pole">
+			<table width="100%" height="60%" style="margin:0 auto;">
+				<tr>
+				<td valign="center" align="center" onClick="odokry(1,1);"><div id="1x1" style="display:none; background:#FFF;"></div><div id="1x1cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(1,2);"><div id="1x2" style="display:none; background:#FFF;"></div><div id="1x2cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(1,3);"><div id="1x3" style="display:none; background:#FFF;"></div><div id="1x3cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(1,4);"><div id="1x4" style="display:none; background:#FFF;"></div><div id="1x4cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(1,5);"><div id="1x5" style="display:none; background:#FFF;"></div><div id="1x5cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(1,6);"><div id="1x6" style="display:none; background:#FFF;"></div><div id="1x6cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(1,7);"><div id="1x7" style="display:none; background:#FFF;"></div><div id="1x7cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(1,8);"><div id="1x8" style="display:none; background:#FFF;"></div><div id="1x8cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(1,9);"><div id="1x9" style="display:none; background:#FFF;"></div><div id="1x9cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(1,10);"><div id="1x10" style="display:none; background:#FFF;"></div><div id="1x10cover" class="cover" style="opacity:1;" ></div></td>
+				</tr><tr>
+				<td valign="center" align="center" onClick="odokry(2,1);"><div id="2x1" style="display:none; background:#FFF;"></div><div id="2x1cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(2,2);"><div id="2x2" style="display:none; background:#FFF;"></div><div id="2x2cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(2,3);"><div id="2x3" style="display:none; background:#FFF;"></div><div id="2x3cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(2,4);"><div id="2x4" style="display:none; background:#FFF;"></div><div id="2x4cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(2,5);"><div id="2x5" style="display:none; background:#FFF;"></div><div id="2x5cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(2,6);"><div id="2x6" style="display:none; background:#FFF;"></div><div id="2x6cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(2,7);"><div id="2x7" style="display:none; background:#FFF;"></div><div id="2x7cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(2,8);"><div id="2x8" style="display:none; background:#FFF;"></div><div id="2x8cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(2,9);"><div id="2x9" style="display:none; background:#FFF;"></div><div id="2x9cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(2,10);"><div id="2x10" style="display:none; background:#FFF;"></div><div id="2x10cover" class="cover" style="opacity:1;" ></div></td>
+				</tr><tr>
+				<td valign="center" align="center" onClick="odokry(3,1);"><div id="3x1" style="display:none; background:#FFF;"></div><div id="3x1cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(3,2);"><div id="3x2" style="display:none; background:#FFF;"></div><div id="3x2cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(3,3);"><div id="3x3" style="display:none; background:#FFF;"></div><div id="3x3cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(3,4);"><div id="3x4" style="display:none; background:#FFF;"></div><div id="3x4cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(3,5);"><div id="3x5" style="display:none; background:#FFF;"></div><div id="3x5cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(3,6);"><div id="3x6" style="display:none; background:#FFF;"></div><div id="3x6cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(3,7);"><div id="3x7" style="display:none; background:#FFF;"></div><div id="3x7cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(3,8);"><div id="3x8" style="display:none; background:#FFF;"></div><div id="3x8cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(3,9);"><div id="3x9" style="display:none; background:#FFF;"></div><div id="3x9cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(3,10);"><div id="3x10" style="display:none; background:#FFF;"></div><div id="3x10cover" class="cover" style="opacity:1;" ></div></td>
+				</tr><tr>
+				<td valign="center" align="center" onClick="odokry(4,1);"><div id="4x1" style="display:none; background:#FFF;"></div><div id="4x1cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(4,2);"><div id="4x2" style="display:none; background:#FFF;"></div><div id="4x2cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(4,3);"><div id="4x3" style="display:none; background:#FFF;"></div><div id="4x3cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(4,4);"><div id="4x4" style="display:none; background:#FFF;"></div><div id="4x4cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(4,5);"><div id="4x5" style="display:none; background:#FFF;"></div><div id="4x5cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(4,6);"><div id="4x6" style="display:none; background:#FFF;"></div><div id="4x6cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(4,7);"><div id="4x7" style="display:none; background:#FFF;"></div><div id="4x7cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(4,8);"><div id="4x8" style="display:none; background:#FFF;"></div><div id="4x8cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(4,9);"><div id="4x9" style="display:none; background:#FFF;"></div><div id="4x9cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(4,10);"><div id="4x10" style="display:none; background:#FFF;"></div><div id="4x10cover" class="cover" style="opacity:1;" ></div></td>
+				</tr><tr>
+				<td valign="center" align="center" onClick="odokry(5,1);"><div id="5x1" style="display:none; background:#FFF;"></div><div id="5x1cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(5,2);"><div id="5x2" style="display:none; background:#FFF;"></div><div id="5x2cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(5,3);"><div id="5x3" style="display:none; background:#FFF;"></div><div id="5x3cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(5,4);"><div id="5x4" style="display:none; background:#FFF;"></div><div id="5x4cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(5,5);"><div id="5x5" style="display:none; background:#FFF;"></div><div id="5x5cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(5,6);"><div id="5x6" style="display:none; background:#FFF;"></div><div id="5x6cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(5,7);"><div id="5x7" style="display:none; background:#FFF;"></div><div id="5x7cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(5,8);"><div id="5x8" style="display:none; background:#FFF;"></div><div id="5x8cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(5,9);"><div id="5x9" style="display:none; background:#FFF;"></div><div id="5x9cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(5,10);"><div id="5x10" style="display:none; background:#FFF;"></div><div id="5x10cover" class="cover" style="opacity:1;" ></div></td>
+				</tr><tr>
+				<td valign="center" align="center" onClick="odokry(6,1);"><div id="6x1" style="display:none; background:#FFF;"></div><div id="6x1cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(6,2);"><div id="6x2" style="display:none; background:#FFF;"></div><div id="6x2cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(6,3);"><div id="6x3" style="display:none; background:#FFF;"></div><div id="6x3cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(6,4);"><div id="6x4" style="display:none; background:#FFF;"></div><div id="6x4cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(6,5);"><div id="6x5" style="display:none; background:#FFF;"></div><div id="6x5cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(6,6);"><div id="6x6" style="display:none; background:#FFF;"></div><div id="6x6cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(6,7);"><div id="6x7" style="display:none; background:#FFF;"></div><div id="6x7cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(6,8);"><div id="6x8" style="display:none; background:#FFF;"></div><div id="6x8cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(6,9);"><div id="6x9" style="display:none; background:#FFF;"></div><div id="6x9cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(6,10);"><div id="6x10" style="display:none; background:#FFF;"></div><div id="6x10cover" class="cover" style="opacity:1;" ></div></td>
+				</tr><tr>
+				<td valign="center" align="center" onClick="odokry(7,1);"><div id="7x1" style="display:none; background:#FFF;"></div><div id="7x1cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(7,2);"><div id="7x2" style="display:none; background:#FFF;"></div><div id="7x2cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(7,3);"><div id="7x3" style="display:none; background:#FFF;"></div><div id="7x3cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(7,4);"><div id="7x4" style="display:none; background:#FFF;"></div><div id="7x4cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(7,5);"><div id="7x5" style="display:none; background:#FFF;"></div><div id="7x5cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(7,6);"><div id="7x6" style="display:none; background:#FFF;"></div><div id="7x6cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(7,7);"><div id="7x7" style="display:none; background:#FFF;"></div><div id="7x7cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(7,8);"><div id="7x8" style="display:none; background:#FFF;"></div><div id="7x8cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(7,9);"><div id="7x9" style="display:none; background:#FFF;"></div><div id="7x9cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(7,10);"><div id="7x10" style="display:none; background:#FFF;"></div><div id="7x10cover" class="cover" style="opacity:1;" ></div></td>
+				</tr><tr>
+				<td valign="center" align="center" onClick="odokry(8,1);"><div id="8x1" style="display:none; background:#FFF;"></div><div id="8x1cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(8,2);"><div id="8x2" style="display:none; background:#FFF;"></div><div id="8x2cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(8,3);"><div id="8x3" style="display:none; background:#FFF;"></div><div id="8x3cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(8,4);"><div id="8x4" style="display:none; background:#FFF;"></div><div id="8x4cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(8,5);"><div id="8x5" style="display:none; background:#FFF;"></div><div id="8x5cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(8,6);"><div id="8x6" style="display:none; background:#FFF;"></div><div id="8x6cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(8,7);"><div id="8x7" style="display:none; background:#FFF;"></div><div id="8x7cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(8,8);"><div id="8x8" style="display:none; background:#FFF;"></div><div id="8x8cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(8,9);"><div id="8x9" style="display:none; background:#FFF;"></div><div id="8x9cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(8,10);"><div id="8x10" style="display:none; background:#FFF;"></div><div id="8x10cover" class="cover" style="opacity:1;" ></div></td>
+				</tr><tr>
+				<td valign="center" align="center" onClick="odokry(9,1);"><div id="9x1" style="display:none; background:#FFF;"></div><div id="9x1cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(9,2);"><div id="9x2" style="display:none; background:#FFF;"></div><div id="9x2cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(9,3);"><div id="9x3" style="display:none; background:#FFF;"></div><div id="9x3cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(9,4);"><div id="9x4" style="display:none; background:#FFF;"></div><div id="9x4cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(9,5);"><div id="9x5" style="display:none; background:#FFF;"></div><div id="9x5cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(9,6);"><div id="9x6" style="display:none; background:#FFF;"></div><div id="9x6cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(9,7);"><div id="9x7" style="display:none; background:#FFF;"></div><div id="9x7cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(9,8);"><div id="9x8" style="display:none; background:#FFF;"></div><div id="9x8cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(9,9);"><div id="9x9" style="display:none; background:#FFF;"></div><div id="9x9cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(9,10);"><div id="9x10" style="display:none; background:#FFF;"></div><div id="9x10cover" class="cover" style="opacity:1;" ></div></td>
+				</tr><tr>
+				<td valign="center" align="center" onClick="odokry(10,1);"><div id="10x1" style="display:none; background:#FFF;"></div><div id="10x1cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(10,2);"><div id="10x2" style="display:none; background:#FFF;"></div><div id="10x2cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(10,3);"><div id="10x3" style="display:none; background:#FFF;"></div><div id="10x3cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(10,4);"><div id="10x4" style="display:none; background:#FFF;"></div><div id="10x4cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(10,5);"><div id="10x5" style="display:none; background:#FFF;"></div><div id="10x5cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(10,6);"><div id="10x6" style="display:none; background:#FFF;"></div><div id="10x6cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(10,7);"><div id="10x7" style="display:none; background:#FFF;"></div><div id="10x7cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(10,8);"><div id="10x8" style="display:none; background:#FFF;"></div><div id="10x8cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(10,9);"><div id="10x9" style="display:none; background:#FFF;"></div><div id="10x9cover" class="cover" style="opacity:1;" ></div></td>
+				<td valign="center" align="center" onClick="odokry(10,10);"><div id="10x10" style="display:none; background:#FFF;"></div><div id="10x10cover" class="cover" style="opacity:1;" ></div></td>
+				</tr>
+			</table>
+			</div>
+			<div id="prepinac">
+				<div id="prepinac_picker" onClick="myska(0)"><p align="center"><img src="img/pointer.png" /></p></div>
+				<div id="prepinac_flag" onClick="myska(1)"><p align="center"><img src="img/flag.png" /></p></div>
+			</div>
+		</div>
+		<div id="menu">
+			<div id="header">
+				<div align="center" style="margin:0 auto; display:inline; width:180px;"><h2>Menu</h2></div>
+				<div style="display:inline; width:30px; height:30px; position:absolute; left:2px; top:2px;" class="ikonka" onClick="posun_vlavo('menu','hra');"><img src="img/back.png"></img></div>
+			</div>
+			<br />
+			<div id="menu_polozka"><h3 align="center" onClick="nova_hra('menu','hra');">New Game</h3></div>
+			<br />
+			<div id="menu_polozka"><h3 align="center" onClick="posun_vpravo('menu','help');">Help</h3></div>
+			<br />
+			<div id="menu_polozka"><h3 align="center" onClick="mute();">Music: <div id="toggle_music" style="display:inline;">Y</div></h3></div>
+		</div>
+		<div id="help">
+			<div id="header">
+				<div align="center" style="margin:0 auto; display:inline; width:180px;"><h2>Help</h2></div>
+				<div style="display:inline; width:30px; height:30px; position:absolute; left:2px; top:2px;" class="ikonka" onClick="posun_vlavo('help','menu');"><img src="img/back.png"></img></div>
+			</div>
+			<br />
+			<br />
+			<p style="padding:10px;">Main goal of this game is to find all mines, which are hidden in the mine field. You have to put flag on every mine and clear every empty square. Numbers in the squares represent the amount of mines in the neighbourhood.</p>
+		</div>
+		<div id="loading">
+			<div style="margin-top:50%">
+			<div style="margin-top:-10px;">
+			<p align="center">Loading...</p>
+			</div>
+			</div>
+		</div>
+		<div id="bum" onClick="plant_bomb();">
+			<div style="margin-top:50%">
+			<div style="margin-top:-20px;">
+			<h1 align="center">KABOOOM!!!!<br />You Are Dead!!!</h1><br /><p align="center">Tap to repeat</p>
+			</div>
+			</div>
+		</div>
+		<div id="win" onClick="start_bomb();">
+		<div style="margin-top:50%">
+			<div style="margin-top:-20px;">
+			<h1 align="center">YOU WON!!!!</h1><br /><p align="center">Tap to repeat</p>
+			</div>
+			</div>
+		</div>
+		
+		<audio autoplay loop id="hudba_pozadie">
+		
+		</audio>
+		<audio autoplay id="hudba_bum">
+		
+		</audio>
+		<audio autoplay id="hudba_defused">
+		
+		</audio>
+	</body>
+</html>
